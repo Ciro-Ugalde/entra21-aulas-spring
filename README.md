@@ -1,2 +1,2 @@
 # entra21-aulas-spring
-Aulas spring
+Repositório dedicado às aulas de spring.
