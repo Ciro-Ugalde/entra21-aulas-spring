@@ -1,4 +1,4 @@
-package br.com.entra21.backend.spring.projeto.controller;
+ package br.com.entra21.backend.spring.projeto.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;

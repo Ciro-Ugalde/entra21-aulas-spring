@@ -25,21 +25,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.entra21.backend.spring.projeto.model.ItemNivel3;
 import br.com.entra21.backend.spring.projeto.model.Personagem;
 import br.com.entra21.backend.spring.projeto.model.Programador;
+import br.com.entra21.backend.spring.projeto.model.Usuario;
 import br.com.entra21.backend.spring.projeto.repository.IPersonagemRepository;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/personagens")
-
 public class PersonagemController {
 
 	@Autowired
-	
 	private IPersonagemRepository personagemRepository;
 	
 	@GetMapping()
 	@ResponseStatus(HttpStatus.OK)
-	
 	public List<Personagem> listar(){
 		
 		List<Personagem> response = personagemRepository.findAll();
@@ -51,22 +49,24 @@ public class PersonagemController {
 	
 	@GetMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	
 	public List<Personagem> buscar(@PathVariable("id") int param){
 		List<Personagem> response = personagemRepository.findById(param).stream().toList();
 		return response;
 	}
 	
+	@PostMapping("/login")
+	public Personagem login(@RequestBody Personagem credencial) {
+		return personagemRepository.login(credencial.getNome_heroi(), credencial.getNome_real());
+	}
+	
 	@PostMapping()
 	@ResponseStatus(HttpStatus.CREATED)
-	
 	public @ResponseBody Personagem adicionar(@RequestBody Personagem novoPersonagem) {
-		return personagemRepository.save(novoPersonagem);
+	return personagemRepository.save(novoPersonagem);
 	}
 	
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	
 	public @ResponseBody Optional<Personagem> atualizar (@PathVariable("id") int param, @RequestBody Personagem personagemAtualizado ){
 		
 		Personagem atualizado = personagemRepository.findById(param).get();
@@ -82,7 +82,6 @@ public class PersonagemController {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	
 	public @ResponseBody boolean deletar(@PathVariable ("id") int param) {
 		personagemRepository.deleteById(param);
 		return !personagemRepository.existsById(param);
@@ -139,8 +138,6 @@ public class PersonagemController {
 		e.printStackTrace();
 
 		}
-
-
 
 	}
 }
