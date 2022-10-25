@@ -10,4 +10,4 @@ Repositório com as práticas realizadas em aula
 | Aula | Assunto |
 |------|---------|
 |Introdução|[ Introdução ](./entra21/)|
-|Projeto Final|[ Projeto Final] (https://github.com/entra21-olimpic/entra21-projeto-time-amarelo-olimpic)|
+|Projeto Final|[ Projeto Final](https://github.com/entra21-olimpic/entra21-projeto-time-amarelo-olimpic)|
